@@ -1,13 +1,3 @@
-
- let OrienteMap = new Map<string, number>
- ([
-  ["N", 1],
-  ["W", 2],
-  ["S", 3],
-  ["E", 4],
-
-]);
-
 export class Coordinates {
     x: number;
     y: number;

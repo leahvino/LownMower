@@ -10,11 +10,11 @@ var fs = require('fs');
         let input  : Array<string>=  fs.readFileSync(fileTxtPath).toString().split("\n");
         let maxValue = new Coordinates(input[0]);
         let minValue = new Coordinates("0 0");//TODO 
-        input.shift();
+        input.shift(); //Remove the first Point that defined the maximum point;
     
-        const cmmandArray = input.filter((_, i) => (i % 2 != 0));
-        input.filter((_, i) => (i % 2 == 0))
-        .map((element, index, array) => {
+        const cmmandArray = input.filter((_, i) => (i % 2 != 0)); //array of start point;
+        input.filter((_, i) => (i % 2 == 0)) //array of command Consistently according to array of start point;
+        .map((element, index) => {
     
             let currentValue = new Coordinates(element);
             cmmandArray[index].split("").map(c => {
@@ -60,12 +60,8 @@ var fs = require('fs');
 
 
 
-// process.argv.forEach(function (val, index, array) {
-//     console.log(val);
-// });
-
-
-var filePath = process.argv[2].toString();
+const myArgs = process.argv.slice(2);
+var filePath = myArgs[0].toString();
 
 let output = lownMowerExe(filePath) ;
 console.log(output);
